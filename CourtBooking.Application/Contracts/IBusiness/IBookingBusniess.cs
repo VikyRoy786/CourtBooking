@@ -14,5 +14,6 @@ namespace CourtBooking.Application.Contracts.IBusiness
         public  Task<IList<UserBookingsView>> GetUserBookings(int userId);
         public Task UpdateBooking(UpdateBookingDTO updateBookingDTO, int id);
         public  Task<Bookings> GetBookingDetails(int id);
+        public  Task CancelBooking(int id);
     }
 }

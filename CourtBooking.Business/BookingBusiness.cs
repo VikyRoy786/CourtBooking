@@ -60,5 +60,14 @@ namespace CourtBooking.Business
         {
             return await _bookingRepository.GetByIdAsync(id);
         }
+        public async Task CancelBooking(int id)
+        {
+            var existingBooking = await _bookingRepository.GetByIdAsync(id);
+            if (existingBooking == null)
+            {
+                throw new NotFoundException(string.Format(ConstantsBusiness.CourtNotFound), id);
+            }
+            await _bookingRepository.DeleteAsync(existingBooking);
+        }
     }
 }

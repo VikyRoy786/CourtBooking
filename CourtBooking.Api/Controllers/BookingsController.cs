@@ -1,6 +1,8 @@
-﻿using CourtBooking.Application.Contracts.IBusiness;
+﻿using Azure;
+using CourtBooking.Application.Contracts.IBusiness;
 using CourtBooking.Application.Core;
 using CourtBooking.Application.ViewModel;
+using CourtBooking.Business;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -46,11 +48,12 @@ namespace CourtBooking.Api.Controllers
                     return BadRequest(_response);
                 }
                 var bookingdetails = await _bookingBusniess.GetUserBookings(userId);
-                if(bookingdetails == null)
+                if(bookingdetails.Any() )
                 {
-                    return NotFound(_response);
+                    return Ok(bookingdetails); 
                 }
-                return Ok(bookingdetails);
+                return NotFound(_response);
+
             }
             catch (Exception ex)
             {
@@ -93,10 +96,38 @@ namespace CourtBooking.Api.Controllers
 
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult CancelBooking(int id)
+        [HttpDelete("{id}/CancelBooking")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task< IActionResult >CancelBooking(int id)
         {
-            return NoContent();
+            try
+            {
+                if (id == 0)
+                {
+
+                    return BadRequest(_response);
+                }
+                var existing = await _bookingBusniess.GetBookingDetails(id);
+                if (existing == null)
+                {
+                    return NotFound(_response);
+                }
+                await _bookingBusniess.CancelBooking(id);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages
+                     = new List<string>() { ex.ToString() };
+            }
+            return Ok(_response);
+
         }
 
     }
