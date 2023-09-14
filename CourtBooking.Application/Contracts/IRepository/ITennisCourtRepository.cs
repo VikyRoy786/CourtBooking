@@ -1,4 +1,5 @@
 ﻿using CourtBooking.Application.Contracts.IRepository;
+using CourtBooking.Application.ViewModel;
 using CourtBooking.Domains.Models;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace CourtBooking.Application.Repository.IRepository
 {
     public interface ITennisCourtRepository : IAsyncRepository<TennisCourts>
     {
-        public  Task<IList<TennisCourts>> CourtList();
+        public Task<PaginatedItems<TennisCourtGridView>> CourtList(GetListRequest getListRequest);
+        public  Task<TennisCourts> GetTennisCourtList(string name);
     }
 }

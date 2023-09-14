@@ -17,6 +17,8 @@ namespace CourtBooking.Domains.Models
         public string? Name { get; set; }
         public string? Details { get; set; }
         public double? Rate { get; set; }
+        public string Address  { get; set; }
+        public bool Availbility { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
 

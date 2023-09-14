@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourtBooking.Application.ViewModel
 {
-    public class TennisCourtCreatedDTO
+    public class TennisCourtUpdateDTO
     {
         public string? Name { get; set; }
         public string? Details { get; set; }
