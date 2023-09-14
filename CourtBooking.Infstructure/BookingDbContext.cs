@@ -15,9 +15,10 @@ namespace CourtBooking.Infstructure
         
         
         }
-        public DbSet<UserMaster> UserMasters { get; set; }
+       
         public DbSet<TennisCourts> TennisCourts { get; set; }
         public DbSet<Bookings> Bookings { get; set; }
+        public DbSet<LocalUsers> LocalUsers { get; set; }
 
     }
 }

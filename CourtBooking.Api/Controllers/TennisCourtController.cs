@@ -120,7 +120,7 @@ namespace CourtBooking.Api.Controllers
             }
             catch (Exception ex)
             {
-                _response.IsSuccess = false;
+                
                 _response.ErrorMessages
                      = new List<string>() { ex.ToString() };
             }

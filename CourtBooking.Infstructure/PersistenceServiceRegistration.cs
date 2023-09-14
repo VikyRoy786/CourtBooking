@@ -33,6 +33,8 @@ namespace CourtBooking.Infstructure
             }
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
             services.AddScoped<ITennisCourtRepository, TennisCourtRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IBookingRepository, BookingRepository>();
             return services;
         }
     }
