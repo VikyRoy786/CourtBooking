@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourtBooking.Api", "CourtBo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourtBooking.Application", "CourtBooking.Application\CourtBooking.Application.csproj", "{3656BF5B-5D30-4FB5-9AE8-9C36AD58AB20}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourtBooking.Infstructure", "CourtBooking.Infstructure\CourtBooking.Infstructure.csproj", "{5D92AC41-235D-4419-8CFE-D428C1226D8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourtBooking.Infrastructure", "CourtBooking.Infstructure\CourtBooking.Infrastructure.csproj", "{5D92AC41-235D-4419-8CFE-D428C1226D8A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourtBooking.Domains", "CourtBooking.Domains\CourtBooking.Domains.csproj", "{A618F4FC-BE16-418A-AFFA-AB0E0F4546EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourtBooking.Business", "CourtBooking.Business\CourtBooking.Business.csproj", "{D0CDFFFF-D81A-4487-B69D-EC55519B3B0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourtBooking.Business", "CourtBooking.Business\CourtBooking.Business.csproj", "{D0CDFFFF-D81A-4487-B69D-EC55519B3B0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

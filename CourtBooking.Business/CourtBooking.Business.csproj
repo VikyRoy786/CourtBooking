@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CourtBooking.Application\CourtBooking.Application.csproj" />
-    <ProjectReference Include="..\CourtBooking.Infstructure\CourtBooking.Infstructure.csproj" />
+    <ProjectReference Include="..\CourtBooking.Infstructure\CourtBooking.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

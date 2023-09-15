@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CourtBooking.Business\CourtBooking.Business.csproj" />
-    <ProjectReference Include="..\CourtBooking.Infstructure\CourtBooking.Infstructure.csproj" />
+    <ProjectReference Include="..\CourtBooking.Infstructure\CourtBooking.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
