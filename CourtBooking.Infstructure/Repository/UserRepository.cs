@@ -29,14 +29,14 @@ namespace CourtBooking.Infstructure.Repository
             return false;
         }
 
-        public async Task<LoginResponseDTO> Login(LoginRequestDTO loginRequestDTO)
+        public async Task<LocalUsers> ExistingUser(LoginRequestDTO loginRequestDTO)
         {
             var user = _context.LocalUsers.FirstOrDefault(u=>u.UserName.ToLower() == loginRequestDTO.UserName.ToLower () && u.Password == loginRequestDTO.Password);
             if (user == null)
             {
                 throw new Exception("User Name Or email Not Found");
             }
-            return new LoginResponseDTO { };
+            return user;
         }
 
         

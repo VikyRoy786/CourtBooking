@@ -3,6 +3,7 @@ using CourtBooking.Application.Contracts.IBusiness;
 using CourtBooking.Application.Core;
 using CourtBooking.Application.ViewModel;
 using CourtBooking.Business;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,10 +18,12 @@ namespace CourtBooking.Api.Controllers
         public BookingsController(IBookingBusniess bookingBusniess)
         {
             _bookingBusniess = bookingBusniess;
+            _response = new();
         }
        
 
         [HttpPost("MakeBooking")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -36,6 +39,7 @@ namespace CourtBooking.Api.Controllers
         }
 
         [HttpGet("{userId}")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -67,6 +71,7 @@ namespace CourtBooking.Api.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -97,6 +102,7 @@ namespace CourtBooking.Api.Controllers
         }
 
         [HttpDelete("{id}/CancelBooking")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]

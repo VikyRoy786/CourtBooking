@@ -10,9 +10,11 @@ namespace CourtBooking.Business
         [ExcludeFromCodeCoverage]
         public static IServiceCollection AddBusinessServices(this IServiceCollection services, IConfiguration configuration)
         {
+            
             services.AddTransient<ITennisCourtBusiness, TennisCourtBusiness> ();
             services.AddTransient<IUserBusiness, UserBusiness>();
             services.AddTransient<IBookingBusniess, BookingBusiness>();
+            
 
             return services;
 

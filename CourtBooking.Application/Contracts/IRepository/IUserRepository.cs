@@ -12,7 +12,7 @@ namespace CourtBooking.Application.Contracts.IRepository
     {
         public Task<bool> IsuniqueUser(string userName);
 
-        public Task<LoginResponseDTO> Login(LoginRequestDTO loginRequestDTO);
+        public Task<LocalUsers> ExistingUser(LoginRequestDTO loginRequestDTO);
         
     }
 }

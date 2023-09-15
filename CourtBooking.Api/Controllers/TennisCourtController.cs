@@ -2,6 +2,7 @@
 using CourtBooking.Application.Core;
 using CourtBooking.Application.ViewModel;
 using CourtBooking.Infstructure;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -19,11 +20,13 @@ namespace CourtBooking.Api.Controllers
         public TennisCourtController(ITennisCourtBusiness tennisCourtBusiness)
         {
                 _tennisCourtBusiness = tennisCourtBusiness;
+            _response = new();
         }
 
 
         [HttpGet]
         [Route("list")]
+        [Authorize]
         [ProducesResponseType(typeof(PaginatedItems<TennisCourtGridView>), (int) HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
 
@@ -42,6 +45,7 @@ namespace CourtBooking.Api.Controllers
 
 
         [HttpGet("{id}/getcourtDetails")]
+        [Authorize(Roles ="admin")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -74,6 +78,7 @@ namespace CourtBooking.Api.Controllers
         }
 
         [HttpPost("Create")]
+        [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -98,6 +103,7 @@ namespace CourtBooking.Api.Controllers
         
 
         [HttpPut("{id}/update")]
+        [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -130,6 +136,7 @@ namespace CourtBooking.Api.Controllers
         }
 
         [HttpDelete("{id}/DeleteCourt")]
+        [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]

@@ -13,6 +13,9 @@ namespace CourtBooking.Application.Contracts.IBusiness
         public Task<bool> IsuniqueUser(string userName);
 
         public Task<LoginResponseDTO> Login(LoginRequestDTO loginRequestDTO);
-        public Task<LocalUsers> Register(RegistrationRequestDTO registrationRequestDTO);
+        public Task<LocalUsers> AdminRegistration(RegistrationRequestDTO registrationRequestDTO);
+
+        public Task<LocalUsers> UserRegistration(RegistrationRequestDTO registrationRequestDTO);
+        
     }
 }

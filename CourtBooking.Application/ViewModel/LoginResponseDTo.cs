@@ -9,6 +9,7 @@ namespace CourtBooking.Application.ViewModel
 {
     public class LoginResponseDTO
     {
+        
         public LocalUsers Users { get; set; }
         public string Token { get; set; }
     }
